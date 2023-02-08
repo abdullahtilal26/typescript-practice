@@ -13,7 +13,7 @@ function combine(n1:number|string,n2:number|string,resultConversion: "as-number"
 
 console.log(combine(20,34,"as-number"))
 console.log(combine("20","34","as-number"))
-console.log(combine("Anna","joe"))
+console.log(combine("Anna","joe","as-number"))
 
 //error as it only accept as-number or as-string
 // console.log(combine("20","34","as-numbe"))

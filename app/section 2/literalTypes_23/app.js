@@ -11,5 +11,7 @@ function combine(n1, n2, resultConversion) {
 }
 console.log(combine(20, 34, "as-number"));
 console.log(combine("20", "34", "as-number"));
-console.log(combine("Anna", "joe"));
+console.log(combine("Anna", "joe", "as-number"));
+//error as it only accept as-number or as-string
+// console.log(combine("20","34","as-numbe"))
 //we could also use enum for this but we only have two types of logic and using literal could also work
