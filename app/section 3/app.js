@@ -47,3 +47,9 @@ const map = new Map();
 //If you uncomment lib in tsconfig,then all lib defaults are removed and you have to set by yourself
 //Lib default setings are as follows
 // "lib": ["DOM","DOM.Iterable","ES2016","ScriptHost"],
+//----------- lecture 39 More configuration and compilation options -----------
+// allowjs and checkjs allow js files in compilation
+// allowJs->Js file can be compile by TS
+//checkJs->Js file is not compiled but its ead by compiler and errors are promted
+// jsx is an option that can help with react js
+//declaration and declarationMap are usefull when you are shiing your project as a library to people and you need a manisfiest file that describe all the types you have in the project
