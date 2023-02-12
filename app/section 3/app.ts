@@ -62,3 +62,10 @@ const map=new Map()
 //checkJs->Js file is not compiled but its ead by compiler and errors are promted
 // jsx is an option that can help with react js
 //declaration and declarationMap are usefull when you are shiing your project as a library to people and you need a manisfiest file that describe all the types you have in the project
+
+
+//----------- lecture 40 working with source maps -----------
+//source map help us with debugging and development
+//if sourcemap is disable,if we want to debug in the browser and o to sources tab in inspect,we will see js files which are very complex after ts is compile
+//if sourcemap is enabled,it creates an additional compile js file with .map extensions which holds some metadata
+//Again when we go to sources in inspct with sourcemap enabled,we could see our ts files now and we can use debugger to debug
