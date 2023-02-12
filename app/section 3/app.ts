@@ -36,5 +36,22 @@ fName="none"
 //Example if target is set to es5,then ts code having const,let will be compile to js code having var
 //This is a great option so that we can give backward compatability to old browser that dont understand es6
 
+//----------- lecture 38 TS Core libs -----------
+// libs allow you to specify which default object and features ts knows
 
+// We added "!" in the next line because it tell ts that dont worry in future such a button will exist and we will get value. other wise ts consider button as null
+const button=document.getElementById("btn")!
+button.addEventListener("click",()=>{
+    console.log("Clicked")
+})
 
+//How does ts let us compile and how ts knows that "document" or "document.getElementById" or "button.addEventListener" constatnt or variable or method exist?
+//It works because of "lib" option inTS
+//Normally some default is set to lib array and lib option is commented in tsconfig file
+//Lib defaults depend on your target in tsconfig
+//lets say if target is es6,then lib default includes all es6 features e.g Map
+const map=new Map()
+//By default all dom apis are also included in lib
+//If you uncomment lib in tsconfig,then all lib defaults are removed and you have to set by yourself
+//Lib default setings are as follows
+// "lib": ["DOM","DOM.Iterable","ES2016","ScriptHost"],
