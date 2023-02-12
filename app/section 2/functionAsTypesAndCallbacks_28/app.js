@@ -2,6 +2,7 @@ function addAndHandle(n1, n2, cb) {
     var result = n1 + n2;
     var functionData = cb(result);
     console.log("function data", functionData);
+    return 5;
 }
 addAndHandle(8, 3, function (res) {
     console.log("printing in anonmus callback function the result", res);
