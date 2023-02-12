@@ -69,3 +69,18 @@ const map=new Map()
 //if sourcemap is disable,if we want to debug in the browser and o to sources tab in inspect,we will see js files which are very complex after ts is compile
 //if sourcemap is enabled,it creates an additional compile js file with .map extensions which holds some metadata
 //Again when we go to sources in inspct with sourcemap enabled,we could see our ts files now and we can use debugger to debug
+
+//----------- lecture 41 working with rootDir and outDir -----------
+//by mentioning the directory in outDir,all the compiled js files will be placed in that directory
+//This is helpfull in keeping your project files maintainable
+//generally have two folder src and dist
+//src will held ts project and thedist will contain compile project js files with the same fodler structure in src.
+
+//rootDir is like mentioning the entry point.It tells ts to where look for ts file for compilation
+//any ts file above rootDir will be ignored by Ts AND WONT BE COMPILED OR PUT INTO outDir
+
+// removeComments will remmove comment from compiled js files to make files smaller
+
+//noEmit will make the compiler to check your Ts files and compile but will not create any js filessss
+
+//downleveIteration gives you a moreexac compilation.It will output more robust code.So only turn it on when your code has loops and you see your generated code works differently as compare to its orignal working
