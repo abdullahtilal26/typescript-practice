@@ -29,6 +29,7 @@ function generateErrorRefactored(message, code) {
         message: message,
         errorCode: code
     };
+    // while(1){}//another usecase
 }
 // generateError("Error occured",500)
 console.log(generateErrorRefactored("Error occured", 400));
