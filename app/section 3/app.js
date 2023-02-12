@@ -25,3 +25,8 @@ fName = "none";
 // "include": ["app.ts","config"]
 //Files is like a include but works only for files and not folders
 // "files":["analytics.ts"]
+//----------- lecture 37 Setting a target in compiler setttings -----------
+//compiler option in tsconfig allow us how to control our compilation
+//we have a target property in compilerOptions which basically means the version of javascript code,ts will compile into
+//Example if target is set to es5,then ts code having const,let will be compile to js code having var
+//This is a great option so that we can give backward compatability to old browser that dont understand es6
