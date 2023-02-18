@@ -7,4 +7,8 @@ button.addEventListener("click", () => {
     console.log("Clicked");
 });
 const map = new Map();
+const submitBtn = document.getElementById("submtBtn");
+submitBtn.addEventListener("click", (e) => {
+    console.log(e);
+});
 //# sourceMappingURL=app.js.map

@@ -84,3 +84,12 @@ const map=new Map()
 //noEmit will make the compiler to check your Ts files and compile but will not create any js filessss
 
 //downleveIteration gives you a moreexac compilation.It will output more robust code.So only turn it on when your code has loops and you see your generated code works differently as compare to its orignal working
+
+//----------- lecture 42 stop emitting files on compilation errors -----------
+// "noEmmitOnError":true/false
+//if true,if we have error during compilation,no js files will be generated
+// if false,If we have error during compilation,Js files will be generated despite error which might or might not work
+const submitBtn=document.getElementById("submtBtn")
+submitBtn.addEventListener("click",(e)=>{
+    console.log(e)
+})
