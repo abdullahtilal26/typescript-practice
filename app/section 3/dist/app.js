@@ -11,4 +11,9 @@ const submitBtn = document.getElementById("submtBtn");
 submitBtn.addEventListener("click", (e) => {
     console.log(e);
 });
+const submitBtn2 = document.getElementById("submtBtn");
+function clickHandler(msg) {
+    console.log(msg);
+}
+submitBtn2.addEventListener("click", clickHandler.bind(null, "Hello"));
 //# sourceMappingURL=app.js.map

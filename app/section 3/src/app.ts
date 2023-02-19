@@ -86,10 +86,74 @@ const map=new Map()
 //downleveIteration gives you a moreexac compilation.It will output more robust code.So only turn it on when your code has loops and you see your generated code works differently as compare to its orignal working
 
 //----------- lecture 42 stop emitting files on compilation errors -----------
-// "noEmmitOnError":true/false
+// "noEmmitOnError":true/false in tsConfig.json
 //if true,if we have error during compilation,no js files will be generated
 // if false,If we have error during compilation,Js files will be generated despite error which might or might not work
-const submitBtn=document.getElementById("submtBtn")
+const submitBtn=document.getElementById("submtBtn")!
 submitBtn.addEventListener("click",(e)=>{
     console.log(e)
 })
+
+//----------- lecture 43 strict compilaation -----------
+// "strict"=true enables all strict type checking in tsConfig.json
+//can also set individual rules/options for strict checking
+
+// noImplicitAny:true make sure types of paramters are defined
+//This only checks for paramters and not for variables because functions are defined before they are called and ts cant track what will be passed
+//Example of error
+// function sendAnalytics(data){
+//     console.log(data)
+// }
+// sendAnalytics("the data")
+
+//strictNullChecks:true It tell ts to be strict regarding how you access/use values that might hold null
+// Example of Error
+// const submitBtn=document.getElementById("submtBtn")
+// submitBtn.addEventListener("click",(e)=>{
+//     console.log(e)
+// })
+//We can use "!" to impose TS that the variable must hold some value and cant be null
+//Another work around is to use a if check to check if the variabble is not null
+
+//strictFunctionTypes:true-> advanced feature for managing function types interms of paramters and return types
+
+// strictBindCallApply:true iT checks on which function your calling function binds and checks what you are passing to bind exist in the function defination
+//Example of Error
+// const submitBtn2=document.getElementById("submtBtn")!
+// function clickHandler(msg:string){
+//     console.log(msg)
+// }
+// submitBtn2.addEventListener("click",clickHandler.bind(null))
+
+const submitBtn2=document.getElementById("submtBtn")!
+function clickHandler(msg:string){
+    console.log(msg)
+}
+submitBtn2.addEventListener("click",clickHandler.bind(null,"Hello"))
+//null measn nothing is passed
+
+// "noImplicitThis": true,   TS warns you if you use this when its not clear to whpm it refers to
+//"alwaysStrict": true make sure the compiled js files use strict mode
+
+//----------- lecture 44 Code Quality Options-----------
+// noUnusedLocals": true throws error when a local variable is not used but doesnot throw on global variables coz it might be used in another file
+//EXAMPLE OF Error
+// const isCheck=()=>{
+//     var check="true"
+//     console.log("is check")
+// }
+
+//  "noUnusedParameters": true throws an error when a parameter is not used
+//EXAMPLE OF Error
+// const checkParam=(checking:boolean)=>{
+//     console.log("checking")
+// }
+
+ // "noImplicitReturns": true, throws error when sometimes a function returns and sometime doesnot
+ //EXAMPLE OF Error
+//  const addition=(n1:number,n2:number)=>{
+//     if(n1){
+//         return n1+n2
+//     }
+
+//  }
