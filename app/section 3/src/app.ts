@@ -157,3 +157,8 @@ submitBtn2.addEventListener("click",clickHandler.bind(null,"Hello"))
 //     }
 
 //  }
+
+//----------- lecture 45 Debugging with visual studio code-----------
+//ESLINT,PRETTIER,DEBUGGER FOR CHROME/JS (Chrome one is depreciated)
+//Palce breakpoints,Enable sourcemap in tsconfig,goto debug select port,then press f5 to start debugging
+//variables sectiion track values of variables,Watch section tracks the value of expressions added,call stack traks calling of functions
