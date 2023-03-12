@@ -49,4 +49,19 @@ const person2Copy = { getName: atk2.getName, setName: atk2.setName };
 // person2Copy.getName(); //compile time error as getName expects the type of this as Person2.This could be ressolved by adding name and other attributes of class in the object property in the above object becasue at the end they all are object
 const person2Copy2 = { name: "atk", age: 2, salary: 300, getName: atk2.getName, setName: atk2.setName };
 person2Copy2.getName();
-//HELLO
+// ------------------Lecture 62 acces modifire--------------------------------------------
+class Car {
+    constructor() {
+        this.engineNo = 123;
+    }
+    setEngineNo(_engineNo) {
+        this.engineNo = _engineNo;
+    }
+    getEngineNo() {
+        return this.engineNo;
+    }
+}
+const honda = new Car();
+honda.setEngineNo(4567);
+// honda.getEngineNo()error as this function is private
+//Note in normal js there is no concept of access modiefier therefore the compile js code will still has all members as public.However these are important in TS as we can have compile time errors in TS when having conflicting access modifires
