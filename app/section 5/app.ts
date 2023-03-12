@@ -115,3 +115,75 @@ class Test{
     }
 }
 
+// ------------------Lecture 65,66,67,68 Inheritence,over riding and protected access modifier and setter and getters and static members--------------------------------------------
+class Vehicle{
+    //Note we cannot access static variable and methode is normall methode of class using this keyword as this represent to instance and for static members instance creation is not required,If need to access static member in normal methodes,we need to use class name as compare to this keyword
+    static vehicleQty=10;
+    static setVehicleQty(qty:number){
+        Vehicle.vehicleQty=qty
+    }
+
+    protected engineNo:number;
+    constructor(private name:string){
+        this.name=""
+        this.engineNo=1234
+    }
+
+    getName():string{
+        // console.log(this.vehicleQty) error
+        console.log(Vehicle.vehicleQty)
+        return this.name
+    }
+
+    getEngineNo(){
+
+        console.log("Base class",this.engineNo)
+    }
+}
+
+//cant inherit from more than 1 class
+class Truck extends Vehicle{
+
+    private maxWeight:number;
+    constructor(_name:string){
+        //need to call super for initiating base class constructore and it should be called beofer we use this operator in child class constructor
+        super(_name)
+        this.maxWeight=10;
+    }
+
+    //setter in ts
+    set settingMacWeight(_weight:number){
+        this.maxWeight=_weight    
+    }
+
+    //getter in ts
+   get getGettingMaxWeight(){
+        return this.maxWeight
+    }
+
+    retriveEngineNo():number{
+        //acessing protected member of base class
+        return this.engineNo
+    }
+
+    //overriding base class methode
+    getEngineNo() {
+        console.log("child class",this.engineNo)
+    }
+}
+
+const v1=new Vehicle("v1")
+
+// const troler=new Truck() error as base class constructore needs arguments
+const troler=new Truck("mazda troller")
+//setting value throgh setter is done like below.We dont set like calling function
+troler.settingMacWeight=5000
+//getting value through getter
+console.log(troler.getGettingMaxWeight)
+
+//static properties and methode can be accessed just by class name and no need to creat an instance before accessing them via new
+//Math.PI is static variable
+//Math.pow() is static methode
+
+Vehicle.setVehicleQty(1000)//callling static methode
+console.log(Vehicle.vehicleQty)//accessing static variable
