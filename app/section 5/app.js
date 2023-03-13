@@ -204,4 +204,51 @@ const pass1 = VerifyPassword.getInstance();
 pass1.getPassword();
 const pass2 = VerifyPassword.getInstance();
 pass2.getPassword();
-// -----------------******** BONUS LEARN ABOOUT PROTOTYPE ********--------------------
+let dhl;
+dhl = {
+    to: "pakistan",
+    from: "usa",
+    send(date) {
+        console.log("deliver on ", date);
+    }
+};
+//interfaces classes has no implmentation at all unlike abstract class
+//all members and methods in interface must be implemented in child class
+//class can implment multiple interfaces
+class Man {
+    constructor() {
+        this.greeting = "How are you?";
+        this.food = "Apple";
+        this.type = "solid";
+    }
+    greet(sentence) {
+        console.log(sentence + this.greeting);
+    }
+    eat(methode) {
+        console.log(methode + this.food);
+    }
+    setType(_type) {
+        this.type = _type;
+    }
+}
+const ali = new Man();
+ali.greet("Hello");
+ali.eat("Eating");
+ali.setType("LIQUID");
+ali.type = "liquid"; //can change the readonly value as its not of type Eatable and is of Child type
+//if you variable of TYPE OF ONE INTERFACE AND THE CHILD CLASS IMPLEMNTS TWO INTERFACES,THEN THE VARIABLE WILL NOT CALL OR ACCESS THE MEMBERS OR METHODS OF OTHER iNTERFACE and the memebrs and methods added by child class not including the implemented one
+let ahmed;
+ahmed = new Man();
+ahmed.greet("Hi,");
+// ahmed.setType()//error as ahmed is of type greetable and cant acces child class own memebrs and methods
+// ahmed.eat() error Error as ahmed is of type Greetable and wont access other innterface method/mmeber even if the object implemnts both interfaces
+let zain;
+zain = ali;
+zain.eat("Eating...");
+// zain.gret() Error as zain is of type Eatable and wont access other innterface method/mmeber even if the object implemnts both interfaces
+let asad = new Man();
+// asad.type="asas" error as th asad is of type Eatable and cant change the valye of type as its readonly.
+//we impose a certain structure for child classes to implemtn if they have same funcytionality using interfaces
+//can inetrafce class have constructor?
+//interface cant have access modifier like private,protected.It can only have readonly where only the variable of that type of interface will get error if change the value.Child class that implememnts that member can change the value
+//******* gO THROUGH READONLY AGAIN AS ITS HAVING SOME ISSUES WHEN USING READONLY VARIABLE IN CHILD CLASS.iTS ALLOWING TO CHANGE THE VALUE OF READONLY VARIABLE */
