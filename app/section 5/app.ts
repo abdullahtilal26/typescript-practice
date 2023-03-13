@@ -348,3 +348,43 @@ let asad:Eatable=new Man()
 //interface cant have access modifier like private,protected.It can only have readonly where only the variable of that type of interface will get error if change the value.Child class that implememnts that member can change the value
 
 //******* gO THROUGH READONLY AGAIN AS ITS HAVING SOME ISSUES WHEN USING READONLY VARIABLE IN CHILD CLASS.iTS ALLOWING TO CHANGE THE VALUE OF READONLY VARIABLE */
+
+// -----------------Lecture 76 Extending Interfaces--------------------
+interface Plane{
+    readonly altitude:number
+}
+interface Weapon{
+    readonly missile:string
+    fire(fireQty:number):void
+}
+//interface can extend multiple interfaces
+interface FighterJet extends Plane,Weapon {
+    radius:number
+    searchEnemy(range:number):void
+}
+//class that implements the interface that is enxtending from multiple interfaces,need to implement all members and methods combine
+class F22 implements FighterJet{
+    altitude: number;
+    missile:string;
+    radius:number
+    constructor(){
+        this.altitude=0
+        this.missile="nuke"
+        this.radius=5
+    }
+    fire(fireQty:number){
+        console.log("Firring no of "+fireQty+" "+this.missile)
+    }
+
+    searchEnemy(range:number){
+        console.log("searching enemies in the range and radius of "+range+" "+this.radius)
+    }
+}
+
+const f22Jet=new F22()
+f22Jet.altitude=100 
+f22Jet.missile="bio"
+f22Jet.radius=78
+f22Jet.fire(3)
+f22Jet.searchEnemy(10)
+// *************************** altitude,missile are readonly and they are still chnagabale.Also Need to see how to add access modifier for such member inorder to make them private **********************************8
