@@ -256,3 +256,95 @@ const pass2=VerifyPassword.getInstance();
 pass2.getPassword()
 
 // -----------------******** BONUS LEARN ABOOUT PROTOTYPE ********--------------------
+
+// -----------------Lecture 72,73,74,75 Interfaces AND READ ONLY VARIABLE--------------------
+//Interface describe the structure of the object/Class
+//Interface cant have initializer
+//can also use it as type
+
+interface Deliver{
+    to:string;
+    from:string;
+
+    send(date:string):void
+}
+
+let dhl:Deliver;
+dhl={
+    to:"pakistan",
+    from:"usa",
+    send(date:string){
+        console.log("deliver on ",date)
+    }
+}
+
+//what is the use of interface then as type keyword does the same thing?
+//in type we can used advance types like union types etc
+//interface are more clearer than types and generally interfaces are used for custom type as compare to type
+//you can implment the interface in class but can also do with types
+// interface act like trhe contract a class can must implement 
+
+interface Greetable{
+    greeting:string;
+    greet(sentence:string):void
+}
+
+interface Eatable{
+    food:string
+    readonly type:string
+    eat(methode:string):void
+}
+//interfaces classes has no implmentation at all unlike abstract class
+//all members and methods in interface must be implemented in child class
+//class can implment multiple interfaces
+class Man implements Greetable,Eatable{
+     greeting: string;
+     food:string;
+     type:string;
+
+    constructor(){
+
+        this.greeting="How are you?"
+        this.food="Apple"
+        this.type="solid"
+    
+    }
+
+    greet(sentence:string){
+       
+        console.log(sentence+this.greeting)
+    }
+
+    eat(methode:string){
+        console.log(methode+this.food)
+    }
+
+    setType(_type:string){
+        this.type=_type
+    }
+}
+
+const ali=new Man()
+ali.greet("Hello")
+ali.eat("Eating")
+ali.setType("LIQUID")
+ali.type="liquid"//can change the readonly value as its not of type Eatable and is of Child type
+
+//if you variable of TYPE OF ONE INTERFACE AND THE CHILD CLASS IMPLEMNTS TWO INTERFACES,THEN THE VARIABLE WILL NOT CALL OR ACCESS THE MEMBERS OR METHODS OF OTHER iNTERFACE and the memebrs and methods added by child class not including the implemented one
+let ahmed:Greetable;
+ahmed=new Man()
+ahmed.greet("Hi,")
+// ahmed.setType()//error as ahmed is of type greetable and cant acces child class own memebrs and methods
+// ahmed.eat() error Error as ahmed is of type Greetable and wont access other innterface method/mmeber even if the object implemnts both interfaces
+
+let zain:Eatable
+zain=ali
+zain.eat("Eating...")
+// zain.gret() Error as zain is of type Eatable and wont access other innterface method/mmeber even if the object implemnts both interfaces
+let asad:Eatable=new Man()
+// asad.type="asas" error as th asad is of type Eatable and cant change the valye of type as its readonly.
+//we impose a certain structure for child classes to implemtn if they have same funcytionality using interfaces
+//can inetrafce class have constructor?
+//interface cant have access modifier like private,protected.It can only have readonly where only the variable of that type of interface will get error if change the value.Child class that implememnts that member can change the value
+
+//******* gO THROUGH READONLY AGAIN AS ITS HAVING SOME ISSUES WHEN USING READONLY VARIABLE IN CHILD CLASS.iTS ALLOWING TO CHANGE THE VALUE OF READONLY VARIABLE */
