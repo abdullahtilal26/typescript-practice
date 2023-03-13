@@ -155,3 +155,53 @@ console.log(troler.getGettingMaxWeight);
 //Math.pow() is static methode
 Vehicle.setVehicleQty(1000); //callling static methode
 console.log(Vehicle.vehicleQty); //accessing static variable
+// ------------------Lecture 69 Abstract class and methods---------------------------
+class Payment {
+    constructor(_amount = 0) {
+        this.amount = _amount;
+    }
+    getAmount() {
+        return this.amount;
+    }
+}
+class PaymentViaCard extends Payment {
+    constructor() {
+        super(8000);
+        this.cardNo = 4242424242424;
+    }
+    pay() {
+        console.log("paying via card and amount is: ", this.getAmount());
+    }
+}
+//abstreact method must be implemented by child class
+//abstract class cant be instantiated
+// const paymentObj=new Payment(); error as cant instantiate abstract class object
+const debitCard = new PaymentViaCard();
+console.log(debitCard.getAmount());
+debitCard.pay();
+// ------------------Lecture 70 private constructor and singleton patteren---------------------------
+class VerifyPassword {
+    constructor(_password = "abc") {
+        this.password = _password;
+    }
+    static getInstance() {
+        if (this.instance) { //we can olso use VerifyPassword.instance
+            console.log("returning old instance");
+            return this.instance;
+        }
+        else {
+            console.log("creating new instance");
+            this.instance = new VerifyPassword(Date().toString());
+            return this.instance;
+        }
+    }
+    getPassword() {
+        console.log("password is ", this.password);
+    }
+}
+// const verify=new verifyPassword() cannot instantiate VerifyPassword class as its constructor is private
+const pass1 = VerifyPassword.getInstance();
+pass1.getPassword();
+const pass2 = VerifyPassword.getInstance();
+pass2.getPassword();
+// -----------------******** BONUS LEARN ABOOUT PROTOTYPE ********--------------------
