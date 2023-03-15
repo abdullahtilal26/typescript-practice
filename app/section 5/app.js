@@ -291,3 +291,4 @@ class Woman {
 const sarah = new Woman();
 const emily = new Woman(5);
 console.log(sarah.height, emily.height);
+//its a ts feature that help you to better structure your code and write clean code

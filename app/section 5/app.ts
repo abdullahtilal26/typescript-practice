@@ -439,3 +439,17 @@ class Woman implements Human{
 const sarah=new Woman()
 const emily=new Woman(5)
 console.log(sarah.height,emily.height)
+
+// -----------------Lecture 79 Compiling Interfaces in JS--------------------
+//we know that the class in TS compiled to js code considering the ES version
+//if its es6 then ts will compile the code into js which will have class
+//But if the es5 is used then it will use the other alternative like constructore functions etc to compile ts class into es5 js code
+
+//However what happens to Interfaces in TS?
+//Nothing....as interfaces are purely ts feature and only available during development.For example forthe following interface class we dont get any converted code in compilked js file
+interface check{
+    checking():number
+}
+
+//its a ts feature that help you to better structure your code and write clean code
+
