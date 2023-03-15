@@ -277,3 +277,17 @@ product = (n1, n2) => {
     return n1 * n2;
 };
 console.log(product(5, 8));
+class Woman {
+    //here we didint implement age member as its now optional
+    //here we didnt implemet getAge function as its optional to implement
+    constructor(_height) {
+        if (_height) {
+            this.height = _height;
+        }
+        this.name = "";
+        this.weight = 0; //you can have an optional property in interface but can make it non-optional in class that implements it
+    }
+}
+const sarah = new Woman();
+const emily = new Woman(5);
+console.log(sarah.height, emily.height);

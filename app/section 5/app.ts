@@ -411,3 +411,31 @@ product=(n1:number,n2:number)=>{
     return n1*n2
 }
 console.log(product(5,8)) 
+
+// -----------------Lecture 78 Optinal paramters and properties in Interfaces--------------------
+//you can define optional properties in interfaces and classes
+interface Human{
+    readonly name:string;
+    age?:number//here age is optional to implement
+    getAge?():number//here get age is optional to implement
+    weight?:number
+}
+
+class Woman implements Human{
+    name: string;
+    weight:number//you can have an optional property in interface but can make it non-optional in class that implements it
+    public height?:number
+    //here we didint implement age member as its now optional
+    //here we didnt implemet getAge function as its optional to implement
+    constructor(_height?:number){
+        if(_height){
+            this.height=_height
+        }
+        this.name=""
+        this.weight=0//you can have an optional property in interface but can make it non-optional in class that implements it
+    }
+}
+
+const sarah=new Woman()
+const emily=new Woman(5)
+console.log(sarah.height,emily.height)
