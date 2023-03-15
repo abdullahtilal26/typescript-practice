@@ -387,4 +387,27 @@ f22Jet.missile="bio"
 f22Jet.radius=78
 f22Jet.fire(3)
 f22Jet.searchEnemy(10)
-// *************************** altitude,missile are readonly and they are still chnagabale.Also Need to see how to add access modifier for such member inorder to make them private **********************************8
+// *************************** altitude,missile are readonly and they are still chnagabale.Also Need to see how to add access modifier for such member inorder to make them private **********************************
+
+// -----------------Lecture 77 Interfaces as function type--------------------
+// Interfaces can be used to define the structure of funtion as replacement of function type
+
+type AddFn=(a:number,b:number)=>number
+
+let add:AddFn;
+add=(n1:number,n2:number)=>{
+    return n1+n2
+}
+console.log(add(2,4))
+
+interface ProductFn{
+    //anonymus function in interface
+    //TS understand this special syntax and identify that you want this interface as function type
+    (a:number,b:number):number
+}
+
+let product:ProductFn;
+product=(n1:number,n2:number)=>{
+    return n1*n2
+}
+console.log(product(5,8)) 

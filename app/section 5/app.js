@@ -267,4 +267,13 @@ f22Jet.missile = "bio";
 f22Jet.radius = 78;
 f22Jet.fire(3);
 f22Jet.searchEnemy(10);
-// *************************** altitude,missile are readonly and they are still chnagabale.Also Need to see how to add access modifier for such member inorder to make them private **********************************8
+let add;
+add = (n1, n2) => {
+    return n1 + n2;
+};
+console.log(add(2, 4));
+let product;
+product = (n1, n2) => {
+    return n1 * n2;
+};
+console.log(product(5, 8));
