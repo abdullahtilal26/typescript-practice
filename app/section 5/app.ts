@@ -450,6 +450,9 @@ console.log(sarah.height,emily.height)
 interface check{
     checking():number
 }
-
+//Abstract classes are compile to js to some extent
+abstract class verify{
+    abstract verifying():boolean
+}
 //its a ts feature that help you to better structure your code and write clean code
 

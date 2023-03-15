@@ -291,4 +291,7 @@ class Woman {
 const sarah = new Woman();
 const emily = new Woman(5);
 console.log(sarah.height, emily.height);
+//Abstract classes are compile to js to some extent
+class verify {
+}
 //its a ts feature that help you to better structure your code and write clean code
