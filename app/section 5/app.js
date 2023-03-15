@@ -295,3 +295,5 @@ console.log(sarah.height, emily.height);
 class verify {
 }
 //its a ts feature that help you to better structure your code and write clean code
+// More on (JS) Classes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+// More on TS Interfaces: https://www.typescriptlang.org/docs/handbook/2/objects.html
